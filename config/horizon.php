@@ -84,7 +84,9 @@ return [
     */
 
     'waits' => [
-        'redis:default' => 60,
+        'redis:critical' => 1,
+        'redis:default' => 1,
+        'redis:batch' => 1,
     ],
 
     /*
@@ -182,10 +184,10 @@ return [
     'defaults' => [
         'supervisor-1' => [
             'connection' => 'redis',
-            'queue' => ['default'],
+            'queue' => ['LISTEN_SMS'],
             'balance' => 'auto',
             'autoScalingStrategy' => 'time',
-            'maxProcesses' => 1,
+            'maxProcesses' => 5,
             'maxTime' => 0,
             'maxJobs' => 0,
             'memory' => 128,
@@ -206,7 +208,10 @@ return [
 
         'local' => [
             'supervisor-1' => [
-                'maxProcesses' => 3,
+                'minProcesses' => 2,
+                'maxProcesses' => 10,
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
             ],
         ],
     ],

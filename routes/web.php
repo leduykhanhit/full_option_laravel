@@ -14,5 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    //\Illuminate\Support\Facades\Cache::set('KHANHLD',123123213);
+    \App\Jobs\HandlerSms::dispatch()->onQueue('LISTEN_SMS');
+
+
     return view('welcome');
+});
+Route::get('/exception', function () {
+    try {
+            echo number_format(2/3333,2);
+            \App\Models\User::all()->forget();
+    }catch (Exception $exception){
+
+    }
+});
+
+Route::get('/slow', function () {
+   sleep(15);
+   echo "hello";
 });
