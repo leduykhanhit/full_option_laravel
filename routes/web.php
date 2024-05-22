@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\StoreModel;
+use http\Client\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +37,18 @@ Route::get('/slow', function () {
    sleep(15);
    echo "hello";
 });
+
+
+Route::get('/search', function (\Illuminate\Http\Request $request) {
+    //dd($request->search);
+    $result = StoreModel::search($request->search)
+        ->raw();
+    dd($result);
+//var_dump($result);
+    foreach ($result['hits'] as $_value){
+        echo "Nhà thuốc: ".$_value['name']." | ";
+        echo "Địa chỉ: ".$_value['address']."<br>";
+    }
+    //\App\Models\StoreModel::where('code','')->searchable();
+});
+
