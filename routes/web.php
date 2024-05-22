@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (\Illuminate\Http\Request $request) {
 
+//    dd($request);
     //\Illuminate\Support\Facades\Cache::set('KHANHLD',123123213);
     \App\Jobs\HandlerSms::dispatch()->onQueue('LISTEN_SMS');
 
