@@ -69,6 +69,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 url : https://www.meilisearch.com/docs/learn/getting_started/installation
 tab: source
+setup service: https://gist.github.com/CorneilleEdi/4ea9d53ffa4a682440a25f7e8533ea8e
 
 ## Install rustup 
 https://www.rust-lang.org/tools/install
