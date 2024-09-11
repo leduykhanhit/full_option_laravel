@@ -134,9 +134,15 @@ return [
         'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
         'key' => env('MEILISEARCH_KEY'),
         'index-settings' => [
-            \App\Models\StoreModel::class => [
-                'filterableAttributes'=> ['id', 'name', 'code'],
-                'sortableAttributes' => ['created_at'],
+//            \App\Models\StoreModel::class => [
+//                'filterableAttributes'=> ['id', 'name', 'code'],
+//                'sortableAttributes' => ['created_at'],
+//                // Other settings fields...
+//            ],
+
+            \App\Models\Province::class => [
+                'filterableAttributes'=> ['id', 'name', 'slug','type','name_with_type'],
+                'sortableAttributes' => ['id'],
                 // Other settings fields...
             ],
             // 'users' => [

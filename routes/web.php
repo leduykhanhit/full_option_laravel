@@ -15,15 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (\Illuminate\Http\Request $request) {
-
-//    dd($request);
-    //\Illuminate\Support\Facades\Cache::set('KHANHLD',123123213);
-    \App\Jobs\HandlerSms::dispatch()->onQueue('LISTEN_SMS');
-
-
+Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/queue', function (\Illuminate\Http\Request $request) {
+    \App\Jobs\HandlerSms::dispatch()->onQueue('LISTEN_SMS');
+   echo "push to queue";
+   die();
+});
+
 Route::get('/exception', function () {
     try {
             echo number_format(2/3333,2);
@@ -40,15 +41,16 @@ Route::get('/slow', function () {
 
 
 Route::get('/search', function (\Illuminate\Http\Request $request) {
-    //dd($request->search);
-    $result = StoreModel::search($request->search)
-        ->raw();
-    dd($result);
-//var_dump($result);
-    foreach ($result['hits'] as $_value){
-        echo "Nhà thuốc: ".$_value['name']." | ";
-        echo "Địa chỉ: ".$_value['address']."<br>";
+
+    $result = \App\Models\Melisearch\Province::search($request->search)
+        ->paginate(10);
+
+    foreach ($result->items() as $_value){
+
+        echo $_value->name."<br>";
     }
+
+    dd($result);
     //\App\Models\StoreModel::where('code','')->searchable();
 });
 
