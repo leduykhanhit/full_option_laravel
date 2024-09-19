@@ -1,0 +1,19 @@
+2024-09-12 08:18:28,208 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-09-12 08:18:28,209 INFO supervisord started with pid 1
+2024-09-12 08:18:29,210 INFO spawnerr: can't find command 'cron'
+2024-09-12 08:18:29,212 INFO spawned: 'horizon' with pid 7
+2024-09-12 08:18:29,213 INFO spawnerr: can't find command '/usr/sbin/php-fpm8.1'
+2024-09-12 08:18:30,325 INFO spawnerr: can't find command 'cron'
+2024-09-12 08:18:30,325 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-09-12 08:18:30,326 INFO spawnerr: can't find command '/usr/sbin/php-fpm8.1'
+2024-09-12 08:18:32,327 INFO spawnerr: can't find command 'cron'
+2024-09-12 08:18:32,327 INFO spawnerr: can't find command '/usr/sbin/php-fpm8.1'
+2024-09-12 08:18:35,331 INFO spawnerr: can't find command 'cron'
+2024-09-12 08:18:35,331 INFO gave up: cron entered FATAL state, too many start retries too quickly
+2024-09-12 08:18:35,331 INFO spawnerr: can't find command '/usr/sbin/php-fpm8.1'
+2024-09-12 08:18:35,331 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-09-12 08:28:19,907 WARN received SIGQUIT indicating exit request
+2024-09-12 08:28:19,907 INFO waiting for horizon to die
+2024-09-12 08:28:22,910 INFO waiting for horizon to die
+2024-09-12 08:28:25,913 INFO waiting for horizon to die
+2024-09-12 08:28:28,917 INFO waiting for horizon to die
