@@ -28,7 +28,7 @@ class UpdateDataMelisearch extends Command
     {
         $province = new Province();
         $data = $province::where('id','=',1)->firstOrFail();
-        $data->type = '11111';
+        $data->type = '44444';
         $data->save();
         //
     }
